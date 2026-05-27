@@ -20,8 +20,16 @@ public class SecurityConfig {
         http
             .csrf(csrf -> csrf.disable())
             .authorizeHttpRequests(authz -> authz
-                .requestMatchers("/api/auth/**", "/api/dog-breeds/**").permitAll()
-                .requestMatchers("/swagger-ui/**", "/v3/api-docs/**").permitAll()
+                .requestMatchers(
+                    "/",
+                    "/api/auth/**",
+                    "/api/dog-breeds/**",
+                    "/swagger-ui/**",
+                    "/swagger-ui.html",
+                    "/v3/api-docs/**",
+                    "/actuator/**",
+                    "/error"
+                ).permitAll()
                 .anyRequest().authenticated()
             );
         return http.build();
