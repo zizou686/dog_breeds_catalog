@@ -1,0 +1,6 @@
+package com.dogbreeds.dto;
+
+public record LoginRequest(
+    String email,
+    String password
+) {}

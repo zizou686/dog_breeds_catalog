@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: dog-breeds-api
+    runtime: docker
+    region: oregon
+    dockerfilePath: ./backend/Dockerfile
+    envVars:
+      - key: DATABASE_URL
+        scope: build,runtime
+        sync: false
+      - key: DB_USER
+        scope: build,runtime
+        sync: false
+      - key: DB_PASSWORD
+        scope: build,runtime
+        sync: false
+      - key: PORT
+        value: 8080
